@@ -1,0 +1,33 @@
+---
+import Base from "@layouts/base.astro";
+import Prose from "@components/prose.astro";
+import { getCollection, getEntry } from "astro:content";
+
+const title = "now";
+
+const allNowPosts = await Astro.glob("../content/now/*.md");
+const nowPosts = allNowPosts
+    .map((n) => ({
+        title: n.frontmatter.title,
+        day: n.frontmatter.day,
+        Content: n.Content,
+    }))
+    .reverse();
+---
+
+<Base title={title}>
+    <Prose>
+        <h1>{title}</h1>
+        {
+            nowPosts.map(({ title, day, Content }) => (
+                <div>
+                    <hr class="my-6 dark:border-zinc-700" />
+                    <h2>
+                        {title} {day}
+                    </h2>
+                    <Content />
+                </div>
+            ))
+        }
+    </Prose>
+</Base>

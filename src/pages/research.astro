@@ -1,0 +1,30 @@
+---
+import Directory from "@layouts/directory.astro";
+import Prose from "@components/prose.astro";
+const title = "research";
+
+const papers = [
+    {
+        title: "Analyzing the Performance of Transformers for the Prediction of the Blood Glucose Level Considering Imputation and Smoothing",
+        author: "Edgar Acuna, Roxana Aparicio, Velcy Palomino",
+        link: "https://www.mdpi.com/2504-2289/7/1/41",
+    },
+];
+---
+
+<Directory title={title}>
+    <h1 class="text-3xl font-bold my-9">{title}</h1>
+    <p>
+        A compilation of research, studies, and papers centered around advancing
+        type 1 diabetes care technology using artificial intelligence
+    </p>
+    <ul class="my-6">
+        {
+            papers.map((p) => (
+                <li>
+                    <b>{p.title}</b> - {p.author} - <a href={p.link}>link</a>
+                </li>
+            ))
+        }
+    </ul>
+</Directory>
