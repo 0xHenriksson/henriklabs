@@ -1,7 +1,6 @@
 ---
-title: runestone
+title: rune stone
 date: 04.16.2024
-img: placeholder.jpg
 ---
 
 ### rune stone: a collection of thoughts
