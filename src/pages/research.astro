@@ -9,6 +9,21 @@ const papers = [
         author: "Edgar Acuna, Roxana Aparicio, Velcy Palomino",
         link: "https://www.mdpi.com/2504-2289/7/1/41",
     },
+    {
+        title: "Studies of insulin and proinsulin in pancreas and serum support the existence of aetiopathological endotypes of type 1 diabetes associated with age at diagnosis",
+        author: "Leete, et al.",
+        link: "https://pubmed.ncbi.nlm.nih.gov/32172310/",
+    },
+    {
+        title: "Differential Insulitic Profiles Determine the Extent of β-Cell Destruction and the Age at Onset of Type 1 Diabetes",
+        author: "Leete, et al.",
+        link: "https://pubmed.ncbi.nlm.nih.gov/26858360/",
+    },
+    {
+        title: "RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval",
+        author: "Sarthi, et al.",
+        link: "https://arxiv.org/html/2401.18059v1",
+    },
 ];
 ---
 
@@ -22,7 +37,8 @@ const papers = [
         {
             papers.map((p) => (
                 <li>
-                    <b>{p.title}</b> - {p.author} - <a href={p.link}>link</a>
+                    <b>{p.title}</b> - {p.author} - {p.doi} -{" "}
+                    <a href={p.link}>link</a>
                 </li>
             ))
         }
