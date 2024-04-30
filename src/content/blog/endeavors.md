@@ -3,8 +3,6 @@ title: endeavors
 date: 04.30.2024
 ---
 
-### endeavors
-
 > "necessity is the mother of invention"
 
 Since my graduation in August of last year, I've been simultaneously laying many paths for my own future. The first few months post-grad were spent strictly applying to jobs, but with only some minor successes in the form of professional network expansion, and a few interviews. While this may not have been the desired outcome, this "period of adversity" has pushed me to iteratively find avenues of self-improvement; e.g. grinding leetcode or building side projects. I've been fortunate to have found a sustainable line of work as a substitute teacher in the meantime, which I've found to be very forgiving and flexible. Mostly I "teach" (supervise and hand out papers) senior anatomy & physiology, and two classes of freshman biology. The surprise here is that I've actually really enjoyed teaching, and in another life–or system where high school teachers are better paid–I might have taken this up as my career. It's rewarding work, and it's a very direct way to #maketheworldabetterplace.
