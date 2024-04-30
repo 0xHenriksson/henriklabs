@@ -24,6 +24,26 @@ const papers = [
         author: "Sarthi, et al.",
         link: "https://arxiv.org/html/2401.18059v1",
     },
+    {
+        title: "Graph Embedding Based Novel Gene Discovery Associated With Diabetes Mellitus",
+        author: "Du, et al.",
+        link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8657768/",
+    },
+    {
+        title: "Gluformer: Transformer-Based Personalized Glucose Forecasting with Uncertainty Quantification",
+        author: "Renat Sergazinov, Mohammadreza Armandpour, Irina Gaynanova",
+        link: "https://arxiv.org/abs/2209.04526",
+    },
+    {
+        title: "Comprehensive Study of a Diabetes Mellitus Mathematical Model Using Numerical Methods with Stability and Parametric Analysis",
+        author: "Al Shurbaji et al.",
+        link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9859387/",
+    },
+    {
+        title: "Examining Type 1 Diabetes Mathematical Models Using Experimental Data",
+        author: "Al Ali, Daneshkhah, Boutayeb, Mukandavire",
+        link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8776201/",
+    },
 ];
 ---
 
@@ -37,7 +57,7 @@ const papers = [
         {
             papers.map((p) => (
                 <li>
-                    <b>{p.title}</b> - {p.author} - {" "}<a href={p.link}>link</a>
+                    <b>{p.title}</b> - {p.author} - <a href={p.link}>link</a>
                 </li>
             ))
         }
