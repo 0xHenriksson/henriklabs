@@ -7,7 +7,7 @@ const { title } = Astro.props;
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>henrik.labs {title && "| " + title}</title>
+        <title style="font-family: 'Berkeley Mono';">henrik labs {title && "| " + title} </title>
     </head>
 
     <body class="dark:bg-zinc-950 dark:text-zinc-300 bg-zinc-100 text-zinc-900">
@@ -15,9 +15,9 @@ const { title } = Astro.props;
             <nav
                 class="flex justify-between items-center w-full cursor-pointer select-none"
             >
-                <a href="/" class="font-bold text-lg">henrik.labs</a>
+                <a href="/" class="font-bold text-lg">henrik labs</a>
                 <div class="flex gap-9 items-center">
-                    <a href="/now" class="text-lg hover:font-bold">now</a>
+                    <!-- <a href="/now" class="text-lg hover:font-bold">now</a> -->
                     <div id="switch" class="text-3xl">○</div>
                 </div>
             </nav>
@@ -29,12 +29,12 @@ const { title } = Astro.props;
                     <li>
                         <a href="mailto:0xhenrik?subject=hello!">alex@henriklabs.com</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="https://github.com/0xhenriksson">github</a>
                     </li>
                     <li>
                         <a href="https://twitter.com/0xhenriksson">twitter</a>
-                    </li>
+                    </li> -->
                 </ul>
             </footer>
         </div>
@@ -63,7 +63,7 @@ const { title } = Astro.props;
         ) {
             return localStorage.getItem("theme");
         }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        if (window.matchMedia("(prefers-color-scheme: system)").matches) {
             return "dark";
         }
         return "light";

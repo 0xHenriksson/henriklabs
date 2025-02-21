@@ -1,22 +1,22 @@
 @font-face {
-    font-family: 'IBM Plex Mono';
-    src: url('/fonts/IBMPlexMono-Regular.ttf') format('truetype');
+    font-family: 'Berkeley Mono';
+    src: url('/fonts/BerkeleyMono-Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'IBM Plex Mono';
-    src: url('/fonts/IBMPlexMono-Italic.ttf') format('truetype');
+    font-family: 'Berkeley Mono';
+    src: url('/fonts/BerkeleyMono-Oblique.otf') format('opentype');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'IBM Plex Mono';
-    src: url('/fonts/IBMPlexMono-Bold.ttf') format('truetype');
+    font-family: 'Berkeley Mono';
+    src: url('/fonts/BerkeleyMono-Bold.otf') format('opentype');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -27,7 +27,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: monospace;
+    font-family: 'Berkeley Mono',monospace;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 #wrapper {
@@ -53,7 +54,7 @@ blockquote p {
 }
 
 h1 {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Berkeley Mono', monospace;
 }
 
 @keyframes fall {
@@ -79,3 +80,276 @@ h1 {
     margin: auto;
     overflow: hidden;
 } */
+
+/* Define color variables for light and dark themes */
+:root {
+    --text-color-light: black;
+    --background-color-light: white;
+    --border-color-light: black;
+
+    --text-color-dark: white;
+    --background-color-dark: black;
+    --border-color-dark: white;
+}
+
+/* Apply theme-based styles using CSS variables */
+[data-theme="light"] {
+    --text-color: var(--text-color-light);
+    --background-color: var(--background-color-light);
+    --border-color: var(--border-color-light);
+}
+
+[data-theme="dark"] {
+    --text-color: var(--text-color-dark);
+    --background-color: var(--background-color-dark);
+    --border-color: var(--border-color-dark);
+}
+
+/* Style for file input and submit button */
+input[type="file"]::file-selector-button,
+button[type="submit"] {
+    color: var(--text-color);
+    background-color: var(--background-color);
+    border: 2px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+input[type="file"]:hover,
+button[type="submit"]:hover {
+    background-color: var(--border-color);
+    color: var(--background-color);
+}
+
+/* core resets and base styles */
+*,:after,:before {
+    box-sizing: border-box;
+    border: 0 solid #e5e7eb;
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+}
+
+:host,html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* form element resets */
+button,input,optgroup,select,textarea {
+    font-family: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+/* button resets */
+button,select {
+    text-transform: none;
+}
+
+button,[type='button'],[type='reset'],[type='submit'] {
+    -webkit-appearance: button;
+    background-color: transparent;
+    background-image: none;
+}
+
+/* focus states */
+:-moz-focusring {
+    outline: auto;
+}
+
+:-moz-ui-invalid {
+    box-shadow: none;
+}
+
+/* media element resets */
+img,video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* typography resets */
+h1,h2,h3,h4,h5,h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/* theme variables */
+:root {
+    --background: 245 244 239;
+    --background-hover: 235 234 229;
+    --foreground: 0 0 0;
+    --muted: 229 228 220;
+    --muted-foreground: 104 104 104;
+    --link: 89 89 89;
+    --button: 217 216 211;
+    --button-hover: 196 195 187;
+    --button-foreground: 64 62 55;
+    --border: 64 62 55;
+    --divider: 229 228 220;
+    --infographic-card: 230 224 203;
+    --infographic-card-elevation: 245 244 239;
+    --infographic-card-highlight: 251 212 91;
+}
+
+/* prose styles */
+.prose {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    line-height: 1.625;
+}
+
+.prose p {
+    margin-bottom: 1rem;
+}
+
+.prose strong {
+    font-weight: 700;
+}
+
+.prose a {
+    color: rgb(var(--link));
+    text-decoration-line: underline;
+}
+
+.prose a:hover {
+    text-decoration-thickness: 2px;
+}
+
+/* utility classes */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 680px) {
+    .container {
+        max-width: 680px;
+    }
+}
+
+/* interactive states */
+.hover\:underline:hover {
+    text-decoration-line: underline;
+}
+
+.hover\:decoration-2:hover {
+    text-decoration-thickness: 2px;
+}
+
+.focus\:outline-none:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.focus-visible\:ring-1:focus-visible {
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+/* transitions */
+.transition {
+    transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
+}
+
+.transition-colors {
+    transition-property: color,background-color,border-color,text-decoration-color,fill,stroke;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
+}
+
+/* loading states */
+.loading-button {
+    display: grid;
+    grid-template-areas: "stack";
+}
+
+.loading-button .spinner {
+    grid-area: stack;
+    visibility: hidden;
+}
+
+.loading-button .text {
+    grid-area: stack;
+    visibility: visible;
+}
+
+.loading-button.loading .text {
+    visibility: hidden;
+}
+
+.loading-button.loading .spinner {
+    visibility: visible;
+}
+
+/* timeline styles */
+.size-\[7px\] {
+    width: 7px;
+    height: 7px;
+}
+
+.bg-white\/60 {
+    background-color: hsla(0,0%,100%,.6);
+}
+
+.text-muted-foreground {
+    color: rgb(var(--muted-foreground));
+}
+
+.outline-background {
+    outline-color: rgb(var(--background));
+}
+
+/* hover effects */
+.hover\:shadow-\[3px_3px_0px_\#C0BDAD\]:hover {
+    --tw-shadow: 3px 3px 0px #c0bdad;
+    --tw-shadow-colored: 3px 3px 0px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+}
+
+.hover\:shadow-\[5px_5px_0px_\#000\]:hover {
+    --tw-shadow: 5px 5px 0px #000;
+    --tw-shadow-colored: 5px 5px 0px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+}
+
+/* transitions */
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
+}

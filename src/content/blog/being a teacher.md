@@ -1,6 +1,7 @@
 ---
 title: being a teacher
 date: 05.29.2024
+description: reflections of a substitute teacher
 ---
 
 For the past few months, I've been working as a substitute teacher at a local high school. When I started this temporary work, I didn't expect it to mean that much to me. Going to a new classroom almost every day of work makes getting established with the students a challenge, and they tend not to see you as a person. However, I was lucky enough to find a situation in which I would be covering for a teacher who was out for the remainder of the year, so I would be a substitute in the same classroom for about three months. A great opportunity for me, the money is good, the 5-minute walk to work was easy, and the work wasn't too intense.

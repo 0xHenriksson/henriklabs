@@ -1,6 +1,7 @@
 ---
 title: becoming a (physics) teacher
 date: 06.20.2024
+description: a new chapter begins
 ---
 
 It's funny how different paths open themselves up to you. I'm on my way to becoming a physics teacher! In my last post, I was wavering on the possibility of becoming a teacher for several reasons, but that hesitation has morphed into excitement. 

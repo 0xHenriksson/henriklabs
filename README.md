@@ -3,15 +3,12 @@
 Research project and personal portfolio
 
 #### TO-DO
-- data storage (gotta choose a DB architecture)
-- auth for submissions
-- contribute.astro
-    - Q&A submissions for model training
-    - Image submission with nutrition information
-    - CGM / BG log submission
-    - donation / payment
+- remove contribute.astro page and link from home
+- resize chat button on home
+- add tags to blog posts
+- add latex rendering to blog posts
 - chat.astro
-    - authentication to prevent misuse
     - chat functionality
+    - auth
     - ability to upload cgm/bg logs
         - pipeline to vectordb

@@ -14,7 +14,7 @@ const Spinner = () => {
 
     return (
         <div>
-            {dots[index]} BUILDING
+            building {dots[index]} 
         </div>
     );
 };
