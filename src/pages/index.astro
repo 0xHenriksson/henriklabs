@@ -3,6 +3,7 @@ import Base from "@layouts/base.astro";
 import Prose from "@components/prose.astro";
 import Moose from "@components/moose.astro";
 import Spinner from "@components/spinner.tsx";
+import Tag from "@components/tag.astro";
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("blog");
@@ -15,48 +16,90 @@ const posts = await getCollection("blog");
 		</div> -->
 
 		<!-- Mission Statement -->
-		<div class="pl-2 ">
-			<div class="ml-6 ">
-				<h2 class="text-lg font-medium">
-					Researching invisible solutions to complex problems.
+		<div class="pl-2">
+			<div class="ml-6">
+				<h2 class="text-lg font-semibold">
+					Researching invisible solutions.
 				</h2>
-				<h3 class="text-xs font-light italic mt-2">
-					In pursuit of a better world through data and
-					technology. <br>A collection of personal projects,
-					experiments, and musings.
+				<h3 class="text-xs font-normal italic mt-2">
+					In pursuit of a better world through data and technology. <br
+					/>A collection of personal projects, experiments, and
+					musings.
 				</h3>
 			</div>
 		</div>
 
 		<!-- App Redirection Buttons -->
 		<div class="pl-2">
-			<div class="relative border-l border-divider
-						before:h-[calc(100%-24px)] before:w-px before:bg-divider before:absolute before:left-[-1px] before:top-[24px]">
+			<div
+				class="relative border-l border-divider
+						before:h-[calc(100%-24px)] before:w-px before:bg-divider before:absolute before:left-[-1px] before:top-[24px]"
+			>
 				<div class="ml-6">
-					<div class="text-m font-mono  border-b my-3 p-1 border-zinc-300 dark:border-zinc-700">
+					<div
+						class="text-m font-mono border-b my-3 p-1 border-zinc-300 dark:border-zinc-700"
+					>
 						<Spinner client:load />
 					</div>
 					<div class="grid grid-cols-2 gap-3">
-						<a href="/"
+						<a
+							href="/"
 							class="flex flex-col gap-2 px-3 py-2 cursor-pointer bg-background border border-divider
-								hover:border-muted hover:shadow-[3px_3px_0px_rgb(var(--muted))] transition-all dark:bg-background dark:border-divider no-underline">
-							<div class="text-xs truncate font-semibold text-foreground">
+								hover:border-muted hover:shadow-[3px_3px_0px_rgb(var(--muted))] transition-[border,box-shadow] duration-150 ease-out dark:bg-background dark:border-divider no-underline"
+						>
+							<div
+								class="text-xs truncate font-semibold text-foreground"
+							>
 								chat
 							</div>
 							<p class="text-xs text-muted-foreground">
-								my favorite model at the moment
+								AI Large Language Model tuned for discussing
+								Type 1 Diabetes
 							</p>
 						</a>
-						<a href="/essaydetect"
+						<a
+							href="/essaydetect"
 							class="flex flex-col gap-2 px-3 py-2 cursor-pointer bg-background border border-divider
-								hover:border-muted hover:shadow-[3px_3px_0px_rgb(var(--muted))] transition-all dark:bg-background dark:border-divider no-underline">
-							<div class="text-xs truncate font-semibold text-foreground">
+								hover:border-muted hover:shadow-[3px_3px_0px_rgb(var(--muted))] transition-[border,box-shadow] duration-150 ease-out dark:bg-background dark:border-divider no-underline"
+						>
+							<div
+								class="text-xs truncate font-semibold text-foreground"
+							>
 								ai essay detector
 							</div>
 							<p class="text-xs text-muted-foreground">
-								use various analytical methods to detect
-								ai-generated essays and generate a report
+								determine if an essay is AI-generated using
+								multiple analytical methods
 							</p>
+						</a>
+						<a
+							href="/essaydetect"
+							class="flex flex-col gap-2 px-3 py-2 cursor-pointer bg-background border border-divider
+								hover:border-muted hover:shadow-[3px_3px_0px_rgb(var(--muted))] transition-[border,box-shadow] duration-150 ease-out dark:bg-background dark:border-divider no-underline"
+						>
+							<div
+								class="text-xs truncate font-semibold text-foreground"
+							>
+								passport photo generator
+							</div>
+							<p class="text-xs text-muted-foreground">
+								take pictures in any environment and get a
+								perfect passport photo
+							</p>
+							<a
+								href="/essaydetect"
+								class="flex flex-col gap-2 px-3 py-2 cursor-pointer bg-background border border-divider
+								hover:border-muted hover:shadow-[3px_3px_0px_rgb(var(--muted))] transition-[border,box-shadow] duration-150 ease-out dark:bg-background dark:border-divider no-underline"
+							>
+								<div
+									class="text-xs truncate font-semibold text-foreground"
+								>
+									classroom gaze detection
+								</div>
+								<p class="text-xs text-muted-foreground">
+									using AI gaze detection to model student engagement vs performance
+								</p>
+							</a>
 						</a>
 					</div>
 				</div>
@@ -65,23 +108,38 @@ const posts = await getCollection("blog");
 
 		<!-- Timeline Posts -->
 		<div class="pl-2">
-			<div class="relative border-l border-divider
-						before:h-[calc(100%-24px)] before:w-px before:bg-divider before:absolute before:left-[-1px] before:top-[24px]">
+			<div
+				class="relative border-l border-divider
+						before:h-[calc(100%-24px)] before:w-px before:bg-divider before:absolute before:left-[-1px] before:top-[24px]"
+			>
 				<div class="ml-6">
-					<div class="text-m font-mono border-b my-3 p-1 border-zinc-300 dark:border-zinc-700">
-						thoughts
+					<div
+						class="text-m font-mono border-b my-3 p-1 border-[rgb(var(--border))] dark:border-zinc-700 flex justify-between items-center"
+					>
+						<span>thoughts</span>
+						<div class="flex gap-2">
+							{[...new Set(posts.flatMap(post => post.data.tags || []))].map((tag) => (
+								<Tag tag={tag} />
+							))}
+						</div>
 					</div>
 					{
 						posts.map((p) => (
-							<a class="flex flex-col gap-2 px-3 py-2 group cursor-pointer bg-background border border-divider 
-									hover:border-muted hover:shadow-[3px_3px_0px_rgb(var(--muted))] transition-all dark:bg-background dark:border-divider mb-4"
-								href={"/blog/" + p.slug}>
+							<a
+								class="flex flex-col gap-2 px-3 py-2 group cursor-pointer bg-background border border-divider 
+									hover:border-muted hover:shadow-[3px_3px_0px_rgb(var(--muted))] transition-[border,box-shadow] duration-150 ease-out dark:bg-background dark:border-divider mb-4"
+								href={"/blog/" + p.slug}
+							>
 								<div class="flex items-baseline gap-2 justify-between relative">
-									<button data-state="closed"
+									<button
+										data-state="closed"
 										class="absolute size-[7px] bg-foreground rounded-sm -left-[40px] top-[7px] 
-													outline outline-background outline-2" />
-									<div class="text-xs truncate font-semibold text-foreground"
-										title={p.data.title}>
+													outline outline-background outline-2"
+									/>
+									<div
+										class="text-xs truncate font-semibold text-foreground"
+										title={p.data.title}
+									>
 										{p.data.title}
 									</div>
 									<div class="text-xs text-muted-foreground whitespace-nowrap">
@@ -100,60 +158,57 @@ const posts = await getCollection("blog");
 
 		<!-- Index Section -->
 		<div class="pl-2">
-			<div class="relative border-l border-divider
-						before:h-[calc(100%-24px)] before:w-px before:bg-divider before:absolute before:left-[-1px] before:top-[24px]">
+			<div
+				class="relative border-l border-divider
+						before:h-[calc(100%-24px)] before:w-px before:bg-divider before:absolute before:left-[-1px] before:top-[24px]"
+			>
 				<div class="ml-6">
-					<div class="text-m font-mono border-b my-3 p-1 border-zinc-300 dark:border-zinc-700">
+					<div
+						class="text-m font-mono border-b my-3 p-1 border-[rgb(var(--border))] dark:border-zinc-700"
+					>
 						index
 					</div>
 					<ul class="list-none pl-0 mt-2">
 						<li class="text-xs">
 							<a
 								href="/about"
-								class="text-foreground hover:text-muted-foreground transition-colors"
+								class="text-foreground hover:text-muted-foreground transition-colors duration-150 ease-out"
 								>[000] about</a
 							>
 						</li>
 						<li class="text-xs">
 							<a
 								href="/projects"
-								class="text-foreground hover:text-muted-foreground transition-colors"
-								> [001] projects</a
+								class="text-foreground hover:text-muted-foreground transition-colors duration-150 ease-out"
+							>
+								[001] projects</a
 							>
 						</li>
 						<li class="text-xs">
 							<a
 								href="/research"
-								class="text-foreground hover:text-muted-foreground transition-colors"
-								> [002] research</a
+								class="text-foreground hover:text-muted-foreground transition-colors duration-150 ease-out"
+							>
+								[002] research</a
 							>
 						</li>
 						<li class="text-xs">
 							<a
 								href="/blog"
-								class="text-foreground hover:text-muted-foreground transition-colors"
-								> [003] blog</a
+								class="text-foreground hover:text-muted-foreground transition-colors duration-150 ease-out"
 							>
-						</li>
+								[003] blog</a
+							</li>
+						<li class="text-xs">
+							<a
+								href="/tags"
+								class="text-foreground hover:text-muted-foreground transition-colors duration-150 ease-out"
+							>
+								[004] tags</a
+							</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
 </Base>
-
-<style>
-	/* Remove the existing hover styles since we're using the new ones */
-	a {
-		width: 100%;
-	}
-
-	/* change this */
-	.moose {
-		width: 100%;
-		display: grid;
-		overflow: hidden;
-		text-align: center;
-		font-size: 75%;
-	}
-</style>

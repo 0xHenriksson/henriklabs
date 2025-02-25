@@ -8,6 +8,14 @@
 
 @font-face {
     font-family: 'Berkeley Mono';
+    src: url('/fonts/BerkeleyMono-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Berkeley Mono';
     src: url('/fonts/BerkeleyMono-Oblique.otf') format('opentype');
     font-weight: normal;
     font-style: italic;
@@ -16,9 +24,9 @@
 
 @font-face {
     font-family: 'Berkeley Mono';
-    src: url('/fonts/BerkeleyMono-Bold.otf') format('opentype');
+    src: url('/fonts/BerkeleyMono-Bold-Oblique.otf') format('opentype');
     font-weight: bold;
-    font-style: normal;
+    font-style: italic;
     font-display: swap;
 }
 
@@ -27,8 +35,43 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Berkeley Mono',monospace;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    font-family: 'Berkeley Mono', monospace;
+    transition: background-color var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1),
+                border-color var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* text elements get a special transition treatment */
+p, h1, h2, h3, h4, h5, h6, span, a, li, div {
+    transition: opacity var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1),
+                background-color var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] p,
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6,
+[data-theme="light"] span,
+[data-theme="light"] a,
+[data-theme="light"] li,
+[data-theme="light"] div {
+    color: rgb(var(--foreground));
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] span,
+[data-theme="dark"] a,
+[data-theme="dark"] li,
+[data-theme="dark"] div {
+    color: rgb(255 255 255);
 }
 
 #wrapper {
@@ -83,13 +126,21 @@ h1 {
 
 /* Define color variables for light and dark themes */
 :root {
-    --text-color-light: black;
-    --background-color-light: white;
-    --border-color-light: black;
-
-    --text-color-dark: white;
-    --background-color-dark: black;
-    --border-color-dark: white;
+    --background: 245 244 239;  /* warm off-white base */
+    --background-hover: 235 234 229;  /* slightly darker warm tone for hover */
+    --foreground: 33 33 33;  /* softer than pure black */
+    --muted: 229 228 220;  /* muted warm gray */
+    --muted-foreground: 82 82 82;  /* warm gray for secondary text */
+    --link: 89 89 89;  /* warm gray for links */
+    --button: 217 216 211;  /* slightly darker than background */
+    --button-hover: 196 195 187;  /* even darker for button hover */
+    --button-foreground: 64 62 55;  /* warm dark gray */
+    --border: 180 178 170;  /* darker warm gray for borders */
+    --divider: 180 178 170;  /* matching border color */
+    --infographic-card: 230 224 203;  /* warm cream */
+    --infographic-card-elevation: 245 244 239;  /* matches background */
+    --infographic-card-highlight: 251 212 91;  /* warm yellow highlight */
+    --transition-duration: 0.618034s;  /* golden ratio (1/φ) in seconds */
 }
 
 /* Apply theme-based styles using CSS variables */
@@ -198,13 +249,13 @@ h1,h2,h3,h4,h5,h6 {
     --background-hover: 235 234 229;
     --foreground: 0 0 0;
     --muted: 229 228 220;
-    --muted-foreground: 104 104 104;
+    --muted-foreground: 82 82 82;
     --link: 89 89 89;
     --button: 217 216 211;
     --button-hover: 196 195 187;
     --button-foreground: 64 62 55;
-    --border: 64 62 55;
-    --divider: 229 228 220;
+    --border: 180 178 170;
+    --divider: 180 178 170;
     --infographic-card: 230 224 203;
     --infographic-card-elevation: 245 244 239;
     --infographic-card-highlight: 251 212 91;
@@ -283,13 +334,13 @@ h1,h2,h3,h4,h5,h6 {
 .transition {
     transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;
     transition-timing-function: cubic-bezier(.4,0,.2,1);
-    transition-duration: .15s;
+    transition-duration: var(--transition-duration);
 }
 
 .transition-colors {
     transition-property: color,background-color,border-color,text-decoration-color,fill,stroke;
     transition-timing-function: cubic-bezier(.4,0,.2,1);
-    transition-duration: .15s;
+    transition-duration: var(--transition-duration);
 }
 
 /* loading states */
@@ -351,5 +402,24 @@ h1,h2,h3,h4,h5,h6 {
 .transition-all {
     transition-property: all;
     transition-timing-function: cubic-bezier(.4,0,.2,1);
-    transition-duration: .15s;
+    transition-duration: var(--transition-duration);
+}
+
+/* component specific styles */
+.moose {
+    width: 100%;
+    display: grid;
+    overflow: hidden;
+    text-align: center;
+    font-size: 75%;
+}
+
+/* layout utilities */
+.full-width {
+    width: 100%;
+}
+
+/* apply full width to all anchor tags in main content */
+main a {
+    width: 100%;
 }

@@ -12,3 +12,10 @@ Research project and personal portfolio
     - auth
     - ability to upload cgm/bg logs
         - pipeline to vectordb
+    - connect to dexcom api ???
+        - https://github.com/dexcomapi/dexcom-api-python-client
+        - ability to connect from phone app would be ideal
+    - connect to nightscout api
+        - https://github.com/nightscout/cgm-remote-monitor
+    
+- hosting jupyter notebook examples
