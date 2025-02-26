@@ -40,6 +40,12 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+For development, install additional dependencies:
+
+```bash
+pip install -r requirements-dev.txt
+```
+
 5. Create `.env` file from example
 
 ```bash
@@ -60,6 +66,20 @@ Access the API documentation at: http://localhost:8000/docs
 
 ```bash
 uvicorn app.main:app --reload
+```
+
+### Testing
+
+Run the test suite:
+
+```bash
+pytest
+```
+
+Or use the test script with code formatting and linting:
+
+```bash
+./scripts/run_tests.sh --format --lint
 ```
 
 ## API Endpoints
