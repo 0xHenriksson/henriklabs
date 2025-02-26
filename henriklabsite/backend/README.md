@@ -90,15 +90,63 @@ Or use the test script with code formatting and linting:
 - `/api/files` - File management
 - `/api/vector` - Vector search capabilities
 
-## Architecture
+## Project Structure
 
-- `app/` - Main application code
-  - `api/` - API endpoints
-  - `auth/` - Authentication handlers
-  - `chat/` - Chat functionality
-  - `storage/` - File storage logic
-  - `vector/` - Vector database integration
-  - `models/` - Data models
-- `config/` - Configuration files
-- `tests/` - Test suite
-- `scripts/` - Utility scripts
+```
+henriklabsite/
+  ├── henriklabs/          # Current Astro frontend
+  └── backend/             # New Python backend
+      ├── app/             # Main application code
+      │   ├── api/         # API endpoints
+      │   ├── auth/        # Authentication handlers
+      │   ├── chat/        # Chat functionality
+      │   ├── storage/     # File storage logic
+      │   ├── vector/      # Vector database integration
+      │   └── models/      # Data models
+      ├── config/          # Configuration files
+      ├── tests/           # Test suite
+      └── scripts/         # Utility scripts
+```
+
+## Implementation Plan
+
+1. **FastAPI Framework**
+   - RESTful API with async support
+   - OpenAPI documentation
+   - WebSocket support for real-time chat
+
+2. **Authentication**
+   - Google OAuth integration using `authlib`
+   - JWT token management with `python-jose`
+   - User session handling
+
+3. **Database**
+   - PostgreSQL for relational data (users, chat histories)
+   - SQLAlchemy ORM for database interactions
+   - Alembic for migrations
+
+4. **File Storage**
+   - CSV validation and processing with pandas
+   - Local storage with path to S3-compatible storage
+   - Access control tied to user authentication
+
+5. **Vector Database**
+   - Qdrant (self-hosted) for vector storage
+   - Embedding generation with sentence-transformers
+   - API for similarity search
+
+6. **LLM Integration**
+   - Anthropic Claude API integration
+   - Abstraction layer for easy model switching
+   - Context management for chat history
+
+7. **Deployment**
+   - Docker containerization
+   - Docker Compose for development
+   - Kubernetes manifests for production
+
+8. **API Endpoints**
+   - `/auth/*` - Authentication routes
+   - `/chat/*` - Chat management
+   - `/files/*` - File upload and management
+   - `/vector/*` - Vector search capabilities
